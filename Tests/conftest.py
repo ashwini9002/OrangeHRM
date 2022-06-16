@@ -1,3 +1,5 @@
+import sys
+
 import pytest
 
 from selenium import webdriver
@@ -25,12 +27,15 @@ def setup(request):
     elif browser_name ==  "firefox" or "FF":
         driver= webdriver.Firefox(GeckoDriverManager().Install())
     else:
-        print("No driver")
+        print("================No driver===========")
     url= request.config.getoption("url")
     driver.get(url)
     request.cls.driver= driver
 
     yield
-    # driver.close()
+    if sys.exc_info()[0]:
+        driver.get_screenshot_as_file('screenshot.png')
+    driver.close()
+
 
 
