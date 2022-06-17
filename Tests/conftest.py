@@ -13,8 +13,9 @@ def pytest_addoption(parser):
         "--browser_name", action="store", default="chrome"
     )
     parser.addoption(
-        "--url",action="store", default="https://opensource-demo.orangehrmlive.com/"
-        #"https://www.thedigitalcatonline.com/blog/2014/05/19/method-overriding-in-python/"
+        "--url",action="store", default=
+        "https://www.thedigitalcatonline.com/blog/2014/05/19/method-overriding-in-python/"
+        # "https://opensource-demo.orangehrmlive.com/"
     )
 
 @pytest.fixture
