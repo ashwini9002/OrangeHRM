@@ -7,15 +7,17 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 
+from Utilities.readConfig import ReadConfig
+
 
 def pytest_addoption(parser):
     parser.addoption(
         "--browser_name", action="store", default="chrome"
     )
     parser.addoption(
-        "--url",action="store", default=
-        "https://www.thedigitalcatonline.com/blog/2014/05/19/method-overriding-in-python/"
-        # "https://opensource-demo.orangehrmlive.com/"
+        "--url",action="store", default="https://opensource-demo.orangehrmlive.com/"
+        # "https://www.thedigitalcatonline.com/blog/2014/05/19/method-overriding-in-python/"
+
     )
 
 @pytest.fixture
@@ -30,7 +32,7 @@ def setup(request):
     else:
         print("================No driver===========")
     url= request.config.getoption("url")
-    driver.get(url)
+    driver.get(ReadConfig.getURL())
     request.cls.driver= driver
 
     yield
