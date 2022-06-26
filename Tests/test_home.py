@@ -45,7 +45,7 @@ class TestHome:
         self.logger.info("***********TC_test_login **********")
         self.logger.info("*********** Verify Login **********")
         self.hp.login(ReadConfig.getUsername(),ReadConfig.getPassword())
-        if "dashboard" in self.driver.current_url:
+        if "dashboarddd" in self.driver.current_url:
             assert  True
             self.logger.info("**********Login Test Passed**********")
 
